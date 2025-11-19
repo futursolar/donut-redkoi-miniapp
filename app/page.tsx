@@ -22,6 +22,7 @@ import { cn, getEthPrice } from "@/lib/utils";
 import { useAccountData } from "@/hooks/useAccountData";
 import { NavBar } from "@/components/nav-bar";
 import { AddToFarcasterDialog } from "@/components/add-to-farcaster-dialog";
+import { WalletConnectButton } from "@/components/wallet-connect-button";
 
 type MiniAppContext = {
   user?: {
@@ -314,13 +315,19 @@ export default function HomePage() {
         Math.floor(Date.now() / 1000) + DEADLINE_BUFFER_SECONDS,
       );
       const maxPrice = price === 0n ? 0n : (price * 105n) / 100n;
+      
+      // Use builder address from environment, fallback to default provider
+      const builderAddress = process.env.NEXT_PUBLIC_BUILDER_ADDRESS 
+        ? (process.env.NEXT_PUBLIC_BUILDER_ADDRESS as Address)
+        : (CONTRACT_ADDRESSES.provider as Address);
+      
       await writeContract({
         account: targetAddress as Address,
         address: CONTRACT_ADDRESSES.multicall as Address,
         abi: MULTICALL_ABI,
         functionName: "mine",
         args: [
-          CONTRACT_ADDRESSES.provider as Address,
+          builderAddress,
           epochId,
           deadline,
           maxPrice,
@@ -521,28 +528,31 @@ export default function HomePage() {
         }}
       >
         <div className="flex flex-1 flex-col overflow-hidden">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2">
             <h1 className="text-2xl font-bold tracking-wide">GLAZERY</h1>
-            {context?.user ? (
-              <div className="flex items-center gap-2 rounded-full bg-black px-3 py-1">
-                <Avatar className="h-8 w-8 border border-zinc-800">
-                  <AvatarImage
-                    src={userAvatarUrl || undefined}
-                    alt={userDisplayName}
-                    className="object-cover"
-                  />
-                  <AvatarFallback className="bg-zinc-800 text-white">
-                    {initialsFrom(userDisplayName)}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="leading-tight text-left">
-                  <div className="text-sm font-bold">{userDisplayName}</div>
-                  {userHandle ? (
-                    <div className="text-xs text-gray-400">{userHandle}</div>
-                  ) : null}
+            <div className="flex items-center gap-2">
+              <WalletConnectButton />
+              {context?.user ? (
+                <div className="flex items-center gap-2 rounded-full bg-black px-3 py-1">
+                  <Avatar className="h-8 w-8 border border-zinc-800">
+                    <AvatarImage
+                      src={userAvatarUrl || undefined}
+                      alt={userDisplayName}
+                      className="object-cover"
+                    />
+                    <AvatarFallback className="bg-zinc-800 text-white">
+                      {initialsFrom(userDisplayName)}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="leading-tight text-left">
+                    <div className="text-sm font-bold">{userDisplayName}</div>
+                    {userHandle ? (
+                      <div className="text-xs text-gray-400">{userHandle}</div>
+                    ) : null}
+                  </div>
                 </div>
-              </div>
-            ) : null}
+              ) : null}
+            </div>
           </div>
 
           <Card
