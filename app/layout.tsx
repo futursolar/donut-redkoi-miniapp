@@ -2,7 +2,7 @@ import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Providers } from "@/components/providers";
 
-const appDomain = "https://glazecorp.vercel.app";
+const appDomain = process.env.NEXT_PUBLIC_APP_DOMAIN || "https://donut-miner-miniapp-theta.vercel.app";
 const heroImageUrl = `${appDomain}/media/hero.png`;
 const splashImageUrl = `${appDomain}/media/splash.png`;
 
