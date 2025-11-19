@@ -1,8 +1,8 @@
 {
   "accountAssociation": {
-    "header": "GENERATED_FROM_FARCASTER_DEVELOPER_TOOLS",
-    "payload": "GENERATED_FROM_FARCASTER_DEVELOPER_TOOLS",
-    "signature": "GENERATED_FROM_FARCASTER_DEVELOPER_TOOLS"
+    "header": "eyJmaWQiOjMwNDI0MiwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweGI2QzlmMDhDOTZEMDIzODNDNTA2MWYzN0E0ZkFFNjBkQ2Q1MGE5NmQifQ",
+    "payload": "eyJkb21haW4iOiJkb251dC1taW5lci1taW5pYXBwLXRoZXRhLnZlcmNlbC5hcHAifQ",
+    "signature": "/za8wfQtLMx1iWnW70oRhhwvfMn9bb4xEs9cXdw6rpZe2ENyBsZ0+CHj2sgIymq8osGSDG6i7DyNGqhYatREEBw="
   },
   "miniapp": {
     "version": "1",
