@@ -13,7 +13,7 @@ const miniAppEmbed = {
     title: "We Glaze The World",
     action: {
       type: "launch_miniapp" as const,
-      name: "GlazeCorp",
+      name: "jit-glazery",
       url: appDomain,
       splashImageUrl,
       splashBackgroundColor: "#FEE7EC",
@@ -22,10 +22,10 @@ const miniAppEmbed = {
 };
 
 export const metadata: Metadata = {
-  title: "We Glaze The World",
+  title: "jit-glazery",
   description: "Claim the glaze factory and earn donuts on Base.",
   openGraph: {
-    title: "GlazeCorp",
+    title: "jit-glazery",
     description: "Race the hive to control the donut mine and keep the glaze flowing.",
     url: appDomain,
     images: [

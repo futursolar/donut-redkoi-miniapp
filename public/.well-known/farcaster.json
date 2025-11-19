@@ -6,7 +6,7 @@
   },
   "miniapp": {
     "version": "1",
-    "name": "GlazeCorp",
+    "name": "jit-glazery",
     "iconUrl": "https://donut-miner-miniapp-theta.vercel.app/media/hero.png",
     "homeUrl": "https://donut-miner-miniapp-theta.vercel.app",
     "splashImageUrl": "https://donut-miner-miniapp-theta.vercel.app/media/splash.png",

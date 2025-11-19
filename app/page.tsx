@@ -529,7 +529,7 @@ export default function HomePage() {
       >
         <div className="flex flex-1 flex-col overflow-hidden">
           <div className="flex items-center justify-between gap-2">
-            <h1 className="text-2xl font-bold tracking-wide">GLAZERY</h1>
+            <h1 className="text-2xl font-bold tracking-wide">JIT-GLAZERY</h1>
             <div className="flex items-center gap-2">
               <WalletConnectButton />
               {context?.user ? (
