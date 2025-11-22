@@ -1,8 +1,0 @@
-{
-  "name": "donut-redkoi-miniapp",  // 改成你的项目名
-  "compatibility_date": "2025-11-23",  // 当前日期
-  "assets": {
-    "directory": ".next/static",  // Next.js 静态文件目录（build 后生成）
-    "binding": "ASSETS"
-  }
-}
